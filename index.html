@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bluetooth Connection Animation</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Füge Font Awesome CDN hinzu -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <div class="bluetooth-container" id="bluetoothContainer">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+            <div class="circle circle-3"></div>
+            <!-- Ersetze Emoji mit Font Awesome Bluetooth Icon -->
+            <div class="icon" id="bluetoothIcon"><i class="fab fa-bluetooth"></i></div>
+        </div>
+        <div class="status" id="status">Bereit zur Verbindung</div>
+        <audio id="searchingSound" src="sounds/searching.mp3"></audio>
+        <audio id="successSound" src="sounds/success.mp3"></audio>
+        <audio id="disconnectSound" src="sounds/disconnect.mp3"></audio>
+        <script src="script.js"></script>
+    </div>
+</body>
+</html>

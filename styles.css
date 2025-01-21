@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f0f8ff;
+    position: relative; /* Damit wir den Button relativ positionieren können */
+}
+
+.bluetooth-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+/* Die Animation für den normalen Puls */
+.circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    opacity: 0; /* Anfangs nicht sichtbar */
+}
+
+/* Farben und Verzögerungen für den normalen Puls */
+.circle-1 {
+    border-color: #007BFF;
+    animation-delay: 0s;
+}
+
+.circle-2 {
+    border-color: #1E90FF;
+    animation-delay: 0.5s;
+}
+
+.circle-3 {
+    border-color: #00BFFF;
+    animation-delay: 1s;
+}
+
+/* Der Puls wird nur durch die Klasse 'pulse' aktiviert */
+.pulse .circle {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: #007BFF;
+    cursor: pointer; /* Ändert den Cursor, wenn er über das Icon schwebt */
+}
+
+.icon:hover {
+    color: #0056b3; /* Optional: Ändert die Farbe des Icons beim Hover */
+}
+
+.status {
+    position: absolute; /* Absolut positioniert */
+    margin-top: 5%;
+    top: 50%; /* Vertikal zentriert */
+    left: 50%; /* Horizontal zentriert */
+    transform: translate(-50%, -50%); /* Mit transform so positionieren, dass der Text wirklich zentriert ist */
+    font-size: 18px;
+    text-align: center;
+    max-width: 80%; /* Optional, um den Text innerhalb einer bestimmten Breite zu halten */
+    white-space: nowrap; /* Verhindert, dass der Text in mehrere Zeilen umbricht */
+    overflow: hidden; /* Verhindert das Überlaufen des Textes */
+    text-overflow: ellipsis; /* Fügt "..." hinzu, wenn der Text zu lang ist */
+}
+
+
+/* Grüner Kreis, wenn die Verbindung erfolgreich ist */
+.success .circle {
+    animation: none; /* Stoppe die normale Puls-Animation */
+    border-color: #28A745 !important; /* Grüner Kreis */
+    opacity: 1; /* Stelle sicher, dass der Kreis sichtbar ist */
+}
+
+.success .icon {
+    color: #28A745; /* Grünes Icon */
+}
+
+/* Neue Animation für den roten Puls */
+@keyframes redPulse {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+        border-color: red;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+        border-color: red;
+    }
+}
+
+/* Der Puls wird nur durch die Klasse 'red-pulse' aktiviert */
+.red-pulse .circle {
+    animation: redPulse 4s infinite; /* Langsame Animation mit rotem Puls */
+}
+
+.red-pulse .icon {
+    color: red; /* Icon wird rot */
+}
+
+/* Sicherstellen, dass der Start-Button immer im Vordergrund ist */
+.button {
+    position: absolute; /* Positionieren des Buttons */
+    bottom: 20px; /* Abstand zum unteren Rand */
+    z-index: 10; /* Button wird über die Puls-Animation gelegt */
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
